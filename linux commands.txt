@@ -1,5 +1,11 @@
-Cd - to change directory 
+Cd - to change directory
+<<<<<<< HEAD
 sed - to change a single string
 cpp - to copy files and folders to another
 mv - to move files from one place to another
-vim - to edit the contents
+vim - to edit the 
+=======
+pwd - gives current directory
+cp - to copy files and folders to another
+mv - to move files from one place to another
+>>>>>>> parent of e086e67 (second commmit)
