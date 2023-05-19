@@ -2,4 +2,4 @@ Cd - to change directory
 sed - to change a single string
 cpp - to copy files and folders to another
 mv - to move files from one place to another
-vim - to edit the 
+vim - to edit the contents of
