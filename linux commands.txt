@@ -1,0 +1,4 @@
+Cd - to change directory
+pwd - gives current directory
+cp - to copy files and folders to another
+mv - to move files from one place to another
