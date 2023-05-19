@@ -1,4 +1,5 @@
 Cd - to change directory
-pwd - gives current directory
+sed - to change a single string
 cp - to copy files and folders to another
 mv - to move files from one place to another
+vim - to edit the contents
