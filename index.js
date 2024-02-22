@@ -5,10 +5,10 @@ const port = 3000
 
 
 app.get('/api/', (req, res) => {
-  res.send('Hello')
-
+  res.send('Hi first change')
+})
 app.get('/api/fun', (req, res) => {
-  res.send('Application deployed successfully')
+  res.send('testing 1')
 })
 
 app.listen(port, () => {
