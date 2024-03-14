@@ -8,7 +8,7 @@ app.get('/api/', (req, res) => {
   res.send('check first')
 })
 app.get('/api/test', (req, res) => {
-  res.send('test first')
+  res.send('test second')
 })
 
 app.listen(port, () => {
