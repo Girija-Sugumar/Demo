@@ -13,17 +13,30 @@ jobs:
       - name: checkcode
         uses: actions/checkout@v4
 
-      - name: deploy to ec2 instance
-        uses: appleboy/ssh-action@v1.0.3
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
         with:
-         host: ${{ secrets.SSH_HOST }}
-         username: ${{ secrets.USER_NAME }}
-         password: ${{ secrets.SSH_PASSWORD }}
-         script: |
-              sudo git config --global --add safe.directory /home/azureuser/Demo
-              cd /home/azureuser/Demo &&
-              sudo git pull origin main &&
-              sudo /root/.nvm/versions/node/v21.7.3/bin/npm install
-              sudo /root/.nvm/versions/node/v21.7.3/bin/pm2 restart index.js --name "backend node" -- --port 7000
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+
+      
       
         
