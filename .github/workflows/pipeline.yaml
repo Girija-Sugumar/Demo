@@ -19,13 +19,13 @@ jobs:
          username: ${{ secrets.USER_NAME }}
          password: ${{ secrets.SSH_PASSWORD }}
          script: |
-              git config --global --add safe.directory /home/azureuser/Demo
+              sudo git config --global --add safe.directory /home/azureuser/Demo
               cd /home/azureuser/Demo &&
               git checkout main &&
               git fetch --all &&
               git reset --hard origin/main &&
               git pull origin main &&
               sudo npm install
-              sudo pm2 start index.js --name "backend node" -- --port 7000
+              sudo /root/.nvm/versions/node/v21.7.3/bin/pm2 start index.js --name "backend node" -- --port 7000
       
         
