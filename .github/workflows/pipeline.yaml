@@ -19,6 +19,7 @@ jobs:
          username: ${{ secrets.USER_NAME }}
          password: ${{ secrets.SSH_PASSWORD }}
          script: |
+              git config --global --add safe.directory /home/azureuser/Demo
               cd /home/azureuser/Demo &&
               git checkout main &&
               git fetch --all &&
