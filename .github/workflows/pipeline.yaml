@@ -28,5 +28,5 @@ jobs:
               git reset --hard origin/main &&
               git pull origin main &&
               sudo npm install
-              pm2 start index.js --name "backend node" -- --port 7000
+              sudo pm2 start index.js --name "backend node" -- --port 7000
               '
