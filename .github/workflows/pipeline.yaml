@@ -18,7 +18,7 @@ jobs:
             USER_NAME: ${{secrets.USER_NAME}}
       
         run: |
-          ssh -o StrictHostKeyChecking=no -i .github/workflow/private_key ${USER_NAME}@${HOSTNAME} '
+          ssh -o StrictHostKeyChecking=no -i .github/workflows/private_key ${USER_NAME}@${HOSTNAME} '
               # Now we have got the access of EC2 and we will start the deploy .
               cd /home/azureuser/Demo &&
               git checkout main &&
