@@ -11,10 +11,10 @@ jobs:
     
     steps:
       - name: checkcode
-        uses: actions/checkout@v2 
+        uses: actions/checkout@v4
 
       - name: deploy to ec2 instance
-        uses: appleboy/ssh-action@v2
+        uses: appleboy/ssh-action@v1.0.3
         with:
          host: ${{ secrets.SSH_HOST }}
          username: ${{ secrets.USER_NAME }}
