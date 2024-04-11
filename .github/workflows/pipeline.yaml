@@ -24,6 +24,6 @@ jobs:
               cd /home/azureuser/Demo &&
               sudo git pull origin main &&
               sudo /root/.nvm/versions/node/v21.7.3/bin/npm install
-              sudo /root/.nvm/versions/node/v21.7.3/bin/pm2 start index.js --name "backend node" -- --port 7000
+              sudo /root/.nvm/versions/node/v21.7.3/bin/pm2 restart index.js --name "backend node" -- --port 7000
       
         
