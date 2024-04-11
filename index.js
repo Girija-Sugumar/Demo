@@ -5,10 +5,10 @@ const port = 7000
 
 
 app.get('/api/', (req, res) => {
-  res.send('check first')
+  res.send('something')
 })
 app.get('/api/test', (req, res) => {
-  res.send('test second')
+  res.send('something test')
 })
 
 app.listen(port, () => {
