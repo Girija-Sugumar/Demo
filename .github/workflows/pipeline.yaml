@@ -22,10 +22,10 @@ jobs:
          script: |
           sudo su
           cd /home/azureuser/Demo &&
-          docker build -t nicimage .
-          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-          docker tag nicimage nikkoworld/nicimage:latest
-          docker push nikkoworld/nicimage:latest
+          sudo docker build -t nicimage .
+          sudo docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+          sudo docker tag nicimage nikkoworld/nicimage:latest
+          sudo docker push nikkoworld/nicimage:latest
          
          
          
