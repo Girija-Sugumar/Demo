@@ -18,8 +18,8 @@ jobs:
             USER_NAME: ${{secrets.USER_NAME}}
       
         run: |
-          chmod 600 /private_key.pub
-          ssh -o StrictHostKeyChecking=no -i /private_key.pub ${USER_NAME}@${HOSTNAME} '
+          chmod 600 Demo/private_key.pub
+          ssh -o StrictHostKeyChecking=no -i Demo/private_key.pub ${USER_NAME}@${HOSTNAME} '
               # Now we have got the access of EC2 and we will start the deploy .
               cd /home/azureuser/Demo &&
               git checkout main &&
