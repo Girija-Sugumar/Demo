@@ -18,7 +18,7 @@ jobs:
         with:
          host: ${{ secrets.SSH_HOST }}
          username: ${{ secrets.USER_NAME }}
-         private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+         password: ${{ secrets.SSH_PASSWORD }}
          script: |
               cd /home/azureuser/Demo &&
               git checkout main &&
