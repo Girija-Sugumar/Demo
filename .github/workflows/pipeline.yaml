@@ -21,11 +21,8 @@ jobs:
          script: |
               sudo git config --global --add safe.directory /home/azureuser/Demo
               cd /home/azureuser/Demo &&
-              sudo git checkout main &&
-              sudo git fetch --all &&
-              sudo git reset --hard origin/main &&
               sudo git pull origin main &&
-              sudo npm install
+              sudo /root/.nvm/versions/node/v21.7.3/bin/npm install
               sudo /root/.nvm/versions/node/v21.7.3/bin/pm2 start index.js --name "backend node" -- --port 7000
       
         
