@@ -10,18 +10,16 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - uses: actions/checkout@v2 
-      - name: Build & Deploy
-        env:
-            PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-            HOSTNAME: ${{secrets.SSH_HOST}}
-            USER_NAME: ${{secrets.USER_NAME}}
-        shell: bash
-        run: |
-          echo "$PRIVATE_KEY" > private_key
-          chmod 600 private_key
-          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
-              # Now we have got the access of EC2 and we will start the deploy .
+      - name: checkcode
+        uses: actions/checkout@v2 
+
+      - name: deploy to ec2 instance
+        uses: appleboy/ssh-action@main
+        with:
+         host: ${{ secrets.SSH_HOST }}
+         username: ${{ secrets.USER_NAME }}
+         private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+         script: |
               cd /home/azureuser/Demo &&
               git checkout main &&
               git fetch --all &&
@@ -29,4 +27,5 @@ jobs:
               git pull origin main &&
               sudo npm install
               sudo pm2 start index.js --name "backend node" -- --port 7000
-              '
+      
+        
