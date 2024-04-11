@@ -31,7 +31,7 @@ jobs:
           context: /home/azureuser/Demo
           file: Dockerfile
           push: true
-          tag: latest
+          tags: ${{ steps.meta.outputs.tags }}
           
           
 
