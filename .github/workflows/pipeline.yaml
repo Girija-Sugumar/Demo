@@ -23,6 +23,7 @@ jobs:
          script: |
           cd /home/azureuser/Demo &&
           sudo git pull
+          docker build -t firstimage .
           docker tag firstimage contgs.azurecr.io/firstimage
           docker push contgs.azurecr.io/firstimage
           
