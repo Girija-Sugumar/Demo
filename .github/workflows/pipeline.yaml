@@ -29,6 +29,7 @@ jobs:
           sudo docker tag sampleguide:latest nikkoworld/sampleguide:latest
           sudo docker push nikkoworld/sampleguide:latest
           kubectl apply -f kube.yaml
+          kubectl rollout restart deployment myapp
           kubectl get deployment
           kubectl get svc
           kubectl get pods
