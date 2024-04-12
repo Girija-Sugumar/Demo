@@ -5,7 +5,7 @@ const port = 7000
 
 
 app.get('/api/', (req, res) => {
-  res.send('something')
+  res.send('something check')
 })
 app.get('/api/test', (req, res) => {
   res.send('something test')
