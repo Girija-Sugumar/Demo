@@ -18,14 +18,15 @@ jobs:
         with:
          host: ${{ secrets.SSH_HOST }}
          username: ${{ secrets.USER_NAME }}
-         password: ${{ secrets.SSH_PASSWORD }}
+         ssh-private-key: ${{ secrets.DEMO_KEY }}
          script: |
           sudo su
           cd /home/azureuser/Demo &&
-          sudo docker build -t nicimage .
+          sudo docker build -t sampleguide:latest .
           sudo docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-          sudo docker tag nicimage nikkoworld/nicimage:latest
-          sudo docker push nikkoworld/nicimage:latest
+          sudo docker tag sampleguide:latest nikkoworld/sampleguide:latest
+          sudo docker push nikkoworld/sampleguide:latest
+          kubectl get nodes
          
          
          
