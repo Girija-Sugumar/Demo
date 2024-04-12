@@ -21,7 +21,6 @@ jobs:
          key: ${{ secrets.DEMO_KEY }}
          port: ${{ secrets.PORT }}
          script: |
-          sudo su
           cd /home/azureuser/Demo &&
           sudo git pull
           docker tag firstimage contgs.azurecr.io/firstimage
