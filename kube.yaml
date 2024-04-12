@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: nikkoworld/ansible_image
+        image: contgs.azurecr.io/firstimage
         resources:
           limits:
             memory: "128Mi"
@@ -30,5 +30,5 @@ spec:
     app: myapp
   type: LoadBalancer
   ports:
-  - port: 80
+  - port: 8070
     targetPort: 7000
