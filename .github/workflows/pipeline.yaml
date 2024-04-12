@@ -27,7 +27,10 @@ jobs:
           sudo docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
           sudo docker tag sampleguide:latest nikkoworld/sampleguide:latest
           sudo docker push nikkoworld/sampleguide:latest
-          kubectl get nodes
+          kubectl apply -f kube.yaml
+          kubectl get deployment
+          kubectl get svc
+          kubectl get pods
          
          
          
