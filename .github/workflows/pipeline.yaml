@@ -23,6 +23,7 @@ jobs:
          script: |
           sudo su
           cd /home/azureuser/Demo &&
+          sudo git pull
           sudo docker build -t sampleguide:latest .
           sudo docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
           sudo docker tag sampleguide:latest nikkoworld/sampleguide:latest
