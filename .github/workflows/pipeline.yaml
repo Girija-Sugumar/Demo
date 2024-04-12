@@ -13,7 +13,7 @@ jobs:
       - name: checkcode
         uses: actions/checkout@v4
       
-      - name: build and push to docker on ec2 instance
+      - name: build and push to Azure container registry
         uses: appleboy/ssh-action@v1.0.3
         with:
          host: ${{ secrets.SSH_HOST }}
@@ -24,15 +24,10 @@ jobs:
           sudo su
           cd /home/azureuser/Demo &&
           sudo git pull
-          sudo docker build -t sampleguide:latest .
-          sudo docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-          sudo docker tag sampleguide:latest nikkoworld/sampleguide:latest
-          sudo docker push nikkoworld/sampleguide:latest
-          kubectl apply -f kube.yaml
-          kubectl rollout restart deployment myapp
-          kubectl get deployment
-          kubectl get svc
-          kubectl get pods
+          docker tag firstimage contgs.azurecr.io/firstimage
+          docker push contgs.azurecr.io/firstimage
+          
+          
          
          
          
