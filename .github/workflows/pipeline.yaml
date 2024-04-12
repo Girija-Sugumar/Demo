@@ -27,6 +27,7 @@ jobs:
           docker login contgs.azurecr.io -u contgs -p ${{ secrets.PASSWORD }}
           docker tag firstimage contgs.azurecr.io/firstimage
           docker push contgs.azurecr.io/firstimage
+          kubectl apply -f kube.yaml
           
           
          
