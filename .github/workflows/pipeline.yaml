@@ -27,7 +27,11 @@ jobs:
           docker login contgs.azurecr.io -u contgs -p ${{ secrets.PASSWORD }}
           docker tag firstimage contgs.azurecr.io/firstimage
           docker push contgs.azurecr.io/firstimage
-          kubectl apply -f kube.yaml
+      # - name: deploy to azuerapp
+      #   uses: azure/webapps-deploy@v2
+      #   with:
+      #    app-name: 'myappwebgs'
+      #    images: 'contgs.azurecr.io/firstimage'
           
           
          
