@@ -18,8 +18,7 @@ jobs:
         with:
          host: ${{ secrets.SSH_HOST }}
          username: ${{ secrets.USER_NAME }}
-         key: ${{ secrets.DEMO_KEY }}
-         port: ${{ secrets.PORT }}
+         password: ${{ secrets.SSH_PASSWORD }}
          script: |
           cd /home/azureuser/Demo &&
           sudo git pull
